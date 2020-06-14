@@ -28,7 +28,7 @@ def main(args):
     
     if args.checkpoint is not None:
         state_dict = torch.load(args.checkpoint, map_location="cpu")
-        modl.load_state_dict(state_dict)
+        model.load_state_dict(state_dict)
     
     criterion = ASRLoss()
     optimizer = torch.optim.Adam(model.parameters(), lr=0.00001)
@@ -83,7 +83,7 @@ def main(args):
         writer.add_scalar("accuracy", np.mean(accuracy), trainer.state.epoch)
         
         state_dict = model.state_dict()
-        torch.save(state_dict, "checkpoints/checkpoint_epoch_{}.pth".format(trainer.state.epoch))
+        torch.save(state_dict, "checkpoints/checkpoint.pth")
         
                 
         
