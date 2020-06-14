@@ -52,6 +52,6 @@ def get_tain_val_loader(datapath, train_meta, val_meta, batch_size):
     
     
     train_loader = torch.utils.data.DataLoader(train_dataset, batch_size=batch_size)
-    val_loader = torch.utils.data.DataLoader(train_dataset, batch_size=batch_size)
+    val_loader = torch.utils.data.DataLoader(val_dataset, batch_size=batch_size)
     
     return train_loader, val_loader
