@@ -37,6 +37,8 @@ class AudioDataset(Dataset):
         pad_features = torch.ones(self.pad_size, 40) * -15.9
         pad_features[:features.shape[0]] = features
         
+        pad_features = pad_features / 16.0
+        
         
         labels = self.__number_to_labels(self.numbers[indx])
         
