@@ -28,7 +28,7 @@ def main(args):
     optimizer = torch.optim.Adam(model.parameters(), lr=0.00001)
     writer = SummaryWriter()
     
-    os.makedirs("checkpoints/", exists_ok=True)
+    os.makedirs("checkpoints/", exist_ok=True)
     
     train_loader, val_loader = get_tain_val_loader(args.datapath, args.train_meta, args.val_meta, args.batch_size)
     
