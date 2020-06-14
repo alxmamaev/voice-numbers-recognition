@@ -68,7 +68,7 @@ def main(args):
     
     input_data = pd.read_csv(args.input_csv)
     
-    paths = pd["path"].values.tolist()
+    paths = input_data["path"].values.tolist()
     numbers = []
     
     with torch.no_grad():
