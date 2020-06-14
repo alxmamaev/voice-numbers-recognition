@@ -1,3 +1,4 @@
+import os
 import torch
 import numpy as np
 from torch import nn
@@ -26,6 +27,8 @@ def main(args):
     criterion = ASRLoss()
     optimizer = torch.optim.Adam(model.parameters(), lr=0.00001)
     writer = SummaryWriter()
+    
+    os.makedirs("checkpoints/", exists_ok=True)
     
     train_loader, val_loader = get_tain_val_loader(args.datapath, args.train_meta, args.val_meta, args.batch_size)
     
@@ -72,6 +75,10 @@ def main(args):
             accuracy.append(acc)
         
         writer.add_scalar("accuracy", np.mean(accuracy), trainer.state.epoch)
+        
+        state_dict = model.state_dict()
+        torch.save(state_dict, "checkpoints/checkpoint_epoch_{}.pth".format(trainer.state.epoch))
+        
                 
         
     trainer.run(train_loader, max_epochs=args.epochs)
