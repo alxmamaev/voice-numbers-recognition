@@ -15,8 +15,8 @@ def parse():
     parser.add_argument("--datapath", default="dataset")
     parser.add_argument("--train_meta", default="dataset/train.csv")
     parser.add_argument("--val_meta", default="dataset/val.csv")
-    parser.add_argument("--batch_size", default=32)
-    parser.add_argument("--epochs", default=10)
+    parser.add_argument("--batch_size", default=32, type=int)
+    parser.add_argument("--epochs", default=10, type=int)
     
     return parser.parse_args()
 
