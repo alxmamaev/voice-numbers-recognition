@@ -74,7 +74,7 @@ def main(args):
     
     with torch.no_grad():
         for path in tqdm(paths):
-            path = os.path.join(args.data_path, path)
+            path = os.path.join(args.datapath, path)
             features = extract_features(path)
             features = features.unsqueeze(0)
             features = features.to(device)
