@@ -53,7 +53,7 @@ def main(args):
         with torch.no_grad():
             for batch in val_loader:
                 features, labels = batch
-                features.to(device)
+                features = features.to(device)
                 pred = model(features).cpu()
                 pred = torch.argmax(pred, dim=2)
                 
