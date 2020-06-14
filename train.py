@@ -24,7 +24,7 @@ def parse():
 def main(args):
     model = ASR()
     criterion = ASRLoss()
-    optimizer = torch.optim.Adam(model.parameters(), lr=0.001)
+    optimizer = torch.optim.Adam(model.parameters(), lr=0.00001)
     writer = SummaryWriter()
     
     train_loader, val_loader = get_tain_val_loader(args.datapath, args.train_meta, args.val_meta, args.batch_size)
