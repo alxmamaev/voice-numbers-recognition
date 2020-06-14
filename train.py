@@ -18,12 +18,18 @@ def parse():
     parser.add_argument("--val_meta", default="dataset/val.csv")
     parser.add_argument("--batch_size", default=32, type=int)
     parser.add_argument("--epochs", default=10, type=int)
+    parser.add_argument("--checkpoint", default=None, type=str)
     
     return parser.parse_args()
 
 
 def main(args):
     model = ASR()
+    
+    if args.checkpoint is not None:
+        state_dict = torch.load(args.checkpoint, map_location="cpu")
+        modl.load_state_dict(state_dict)
+    
     criterion = ASRLoss()
     optimizer = torch.optim.Adam(model.parameters(), lr=0.00001)
     writer = SummaryWriter()
