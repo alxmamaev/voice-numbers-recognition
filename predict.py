@@ -1,7 +1,7 @@
 from argparse import ArgumentParser
 from data.feature_extractor import ExtractAudioFeature
 import torch
-from model.ast import ASR
+from model.asr import ASR
 import pandas as pd
 from tqdm import tqdm
 
