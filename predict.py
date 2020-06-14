@@ -27,7 +27,7 @@ def predict2number(pred):
         i += 1
     
     while i < len(pred):
-        output += str(pred[i])
+        output += str(pred[i].item())
         i += 1
     
         
