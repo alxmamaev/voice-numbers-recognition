@@ -31,7 +31,7 @@ def main(args):
         model.load_state_dict(state_dict)
     
     criterion = ASRLoss()
-    optimizer = torch.optim.Adam(model.parameters(), lr=0.001)
+    optimizer = torch.optim.Adam(model.parameters(), lr=0.0001)
     writer = SummaryWriter()
     
     os.makedirs("checkpoints/", exist_ok=True)
