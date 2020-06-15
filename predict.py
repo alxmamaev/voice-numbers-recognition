@@ -18,7 +18,7 @@ def parse():
     
 
 def predict2number(pred):
-    pred = torch.argmax(pred[0], dim=1)
+    pred = torch.argmax(pred[0], dim=1).tolist()[::-1]
     
     output = ""
     
@@ -27,7 +27,7 @@ def predict2number(pred):
         i += 1
     
     while i < len(pred):
-        output += str(pred[i].item())
+        output += str(pred[i])
         i += 1
     
         
