@@ -22,9 +22,9 @@ def predict2number(pred):
     
     output = ""
     
-    i = 0
-    while pred[i] == 0 and i < len(pred):
-        i += 1
+    # i = 0
+    # while pred[i] == 0 and i < len(pred):
+    #     i += 1
     
     while i < len(pred):
         output += str(pred[i])
