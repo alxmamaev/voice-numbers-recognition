@@ -21,7 +21,7 @@ class AudioDataset(Dataset):
     def __number_to_labels(number):
         labels = torch.zeros(6, dtype=torch.int64)
         
-        for i, s in enumerate(number):
+        for i, s in enumerate(number[::-1]):
             labels[5 - i] = int(s) 
         
         return labels
