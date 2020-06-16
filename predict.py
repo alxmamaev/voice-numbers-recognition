@@ -9,10 +9,9 @@ from tqdm import tqdm
 
 def parse():
     parser = ArgumentParser()
-    parser.add_argument("datapath")
     parser.add_argument("input_csv")
     parser.add_argument("output_csv")
-    parser.add_argument("checkpoint")
+    parser.add_argument("--checkpoint", default="./checkpoint.pth", type=str)
     
     return parser.parse_args()
     
@@ -74,7 +73,6 @@ def main(args):
     
     with torch.no_grad():
         for path in tqdm(paths):
-            path = os.path.join(args.datapath, path)
             features = extract_features(path)
             features = features.unsqueeze(0)
             features = features.to(device)

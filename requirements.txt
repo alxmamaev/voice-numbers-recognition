@@ -1,0 +1,6 @@
+torch
+pytorch-ignite
+torchaudio
+tqdm
+numpy
+pandas
